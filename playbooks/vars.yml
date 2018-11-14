@@ -1,0 +1,11 @@
+---
+- hosts: node2
+  vars:
+    - username: suresh
+    - groupname: qat
+  tasks:
+    - name: creating {{groupname}} group
+      group: name={{groupname}} state=present
+    - name: adding {{username}} user to group {{groupname}} 
+      user: name={{username}} state=present groups={{groupname}} 
+    - template: src=motd.j2 dest=/etc/motd

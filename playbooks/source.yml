@@ -1,0 +1,6 @@
+---
+- hosts: node1
+  tasks:
+    - get_url: url=http://mirrors.wuchna.com/apachemirror//httpd/httpd-2.4.37.tar.gz dest=/opt/httpd-2.4.37.tar.gz 
+
+    - unarchive: src=/opt/httpd-2.4.37.tar.gz dest=/opt remote_src=yes

@@ -1,0 +1,21 @@
+---
+
+- hosts: node5
+  roles: 
+    - users
+    - httpd
+  tasks: 
+    - package: name=git state=present
+    - git:
+        repo: https://github.com/demoglot/html-samples-doctor.git
+        dest: /var/www/html
+
+- hosts: node4
+  roles: 
+    - users
+    - httpd
+  tasks: 
+    - package: name=git state=present
+    - git:
+        repo: https://github.com/demoglot/html-samples-food.git
+        dest: /var/www/html
